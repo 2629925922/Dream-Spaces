@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/transtion/transtion.css"/>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/transtion/transtion.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <title>制梦翻译</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col d1">
+                <img class="img-fluid" id="imgs" src="../static/images/transtion/bz.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col d2">
+                <div class="d3">
+                    <textarea class="input_textrarea" name="word" id="word" placeholder="请输入你需翻译的内容"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-6 col d2">
+                <div class="d3">
+                    <textarea id="mytext" class="input_textrarea" readonly="readonly"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 d4">
+              <button type="button" class="btn btn-light" onclick="sajax()">翻译</button>
+        </div>
+    </div>
+</body>
+</html>
