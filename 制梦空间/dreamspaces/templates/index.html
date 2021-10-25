@@ -8,6 +8,92 @@
     <link rel="stylesheet" href="static/css/dreamspace.css">
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
     <title>制梦空间</title>
+    <style type="text/css">
+        ul {
+           list-style-type: none;
+        }
+        .d1{
+            height: 750px;width: 100%;background-color: #fff;
+            overflow: hidden;
+        }
+        .d1 img{
+            width: 600px;
+            height: 400px;
+        }
+        .d1 h1{
+            font-size: 3em;
+            color: #b186ce;
+            font-weight: bold;
+            font-family: "HuXiaoBo_KuHei";
+            text-shadow : 10px 10px 5px lightblue;
+            letter-spacing: 10px;
+        }
+        .d1 h2{
+            font-size: 2.1em;
+            color: #bcd0c7;
+            margin-top: 20px;
+        }
+        .d1 ul li{
+            margin-bottom: 30px;
+        }
+        .d1 h4
+        {
+            font-size: 1.2em;
+            line-height: 37px;
+        }
+        .img1
+        {
+            height: 400px;
+            background-image: url("static/images/dreamspace/d1img1.jpg");
+            background-attachment: fixed;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .d1-button
+        {
+            padding: 2em;
+            padding-top: 3em;
+        }
+        .d1-button button
+        {
+            width: 230px;
+            padding:8px;
+            background-color: #428bca;
+            border-color: #357ebd;
+            color: #fff;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px; /* future proofing */
+            -khtml-border-radius: 10px; /* for old Konqueror browsers */
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid transparent;
+            font-weight: 900;
+            font-size:125%
+        }
+        .d1-button a
+        {
+            text-decoration: none;
+            color: #fff;
+        }
+        .d1-button span
+        {
+            letter-spacing: 5px;
+        }
+
+
+        @media (min-width: 1000px) {
+            
+        }
+        @media (max-width: 892px) {
+            .d1 img {width: 340px;height: 200px}
+            .d1 h1{font-size: 2em;margin-top: 50px}
+            .d1 h2{font-size: 1.2em}
+            .d1 h4{font-size: 0.5em;line-height: 20px}
+            .d1-button {padding-top: 1em}
+            .d1-button button {width: 160px}
+        }
+    </style>
 </head>
 <body>
     <div class=".container-fluid img">
@@ -22,5 +108,25 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid d1" style="padding-top: 12%">
+        <div class="row">
+            <div class="col-sm-6 col-12" style="padding-left: 4%">
+                <img src="static/images/dreamspace/bj2.jpg" class="img-fluid rounded"/>
+            </div>
+            <div class="col-sm-6 col-12">
+                <ul>
+                    <li><h1>制梦翻译</h1></li>
+                    <li><h2>免费的在线英汉翻译</h2></li>
+                    <li><h4>日常快译服务可解决日常用语、商贸交流、邮件沟通等紧急准确的翻译需求；同时，专业翻译服务提供学术论文、证件材料、文献出版等专业性极高的多语种翻译服务。</h4></li>
+                </ul>
+                <div class="d1-button">
+                    <button><a href="./Transtions"><span>let's go</span></a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid img1">
+    </div>
+    <div class="container-fluid" style="height: 400px"></div>
 </body>
 </html>
