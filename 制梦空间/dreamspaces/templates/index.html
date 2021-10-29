@@ -9,6 +9,10 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
     <title>制梦空间</title>
     <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
         ul {
            list-style-type: none;
         }
@@ -80,7 +84,57 @@
         {
             letter-spacing: 5px;
         }
+        .d2{
+            height: 750px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .d2 div div:nth-child(1){
+            padding-left: 20%;
+        }
+        .d2 div div:nth-child(2){
+            font-size: 2.1em;
+            padding-top: 7%;
+        }
+        .d2 div div:nth-child(2) span
+        {
+            letter-spacing: 3px;
+        }
+        .d2 div:nth-child(2) div
+        {
+            position: relative;
+            background-color: #41464b;
+            height: 400px;
+        }
+        .d2 div:nth-child(2) div ul li
+        {
+            list-style-type: none;
+            position: absolute;
+            height: 400px;
+            right: 28%;
+        }
+        .d2 div:nth-child(2) div ul li video
+        {
+            height: 400px;
 
+        }
+        .d2 div:nth-child(2) div ul li.first
+        {
+            left: 0%;
+            opacity: 0.2;
+        }
+        .d2 div:nth-child(2) div ul li.two
+        {
+            right: 0%;
+            /*opacity: 0.2;*/
+            left: 25%;
+            z-index: 10;
+        }
+        .d2 div:nth-child(2) div ul li.three
+        {
+            right: 0%;
+            opacity: 0.2;
+        }
 
         @media (min-width: 1000px) {
             
@@ -92,8 +146,37 @@
             .d1 h4{font-size: 0.5em;line-height: 20px}
             .d1-button {padding-top: 1em}
             .d1-button button {width: 160px}
+            .d2 div div:nth-child(1) {padding-left: 5%}
+            .d2 div div:nth-child(1) img{height: 150px}
+            .d2 div div:nth-child(2) {padding-top: 1%;padding-left:15%;font-size: 1.5em}
         }
     </style>
+    <script src="static/js/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function left() {
+            change(0);
+        }
+        function right() {
+            change(1);
+        }
+        function change(k) {
+            data = [];
+            $("video").each(function (i) {
+                data[i] = $("video").attr("src");
+            });
+            var index = 0;
+            $("video").each(function (i) {
+                if(k == 0)
+                {
+                    $(this).attr("src") = data[i];
+                }else
+                {
+                    alert(1);
+                }
+            });
+        }
+
+    </script>
 </head>
 <body>
     <div class=".container-fluid img">
@@ -127,6 +210,30 @@
     </div>
     <div class="container-fluid img1">
     </div>
-    <div class="container-fluid" style="height: 400px"></div>
+    <div class="container-fluid d2" style="position: relative">
+        <div class="row">
+            <div class="col-sm-6 col-12">
+                <img src="static/images/dreamspace/tk.png" />
+            </div>
+            <div class="col-sm-6 col-12">
+                <span>超清无水印动静态壁纸</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-12" id="demo">
+                <ul class="li-video">
+                    <li class="first"><video preload="auto" loop="loop" src="static/video/dreamspace/1.mp4"></video></li>
+                    <li class="two" ><video style="border: 2px red solid;" preload="auto" loop="loop" src="static/video/dreamspace/2.mp4"></video></li>
+                    <li class="three"><video preload="auto" loop="loop" src="static/video/dreamspace/3.mp4"></video></li>
+                </ul>
+            </div>
+              <button class="carousel-control-prev" type="button">
+                <span class="carousel-control-prev-icon" onclick="left()"></span>
+              </button>
+              <button class="carousel-control-next" type="button" >
+                <span class="carousel-control-next-icon" onclick="right()"></span>
+              </button>
+        </div>
+    </div>
 </body>
 </html>
