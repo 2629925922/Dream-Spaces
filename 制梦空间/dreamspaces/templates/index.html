@@ -122,6 +122,7 @@
         {
             left: 0%;
             opacity: 0.2;
+            z-index : 1;
         }
         .d2 div:nth-child(2) div ul li.two
         {
@@ -134,6 +135,7 @@
         {
             right: 0%;
             opacity: 0.2;
+            z-index : 1;
         }
 
         @media (min-width: 1000px) {
@@ -159,21 +161,50 @@
         function right() {
             change(1);
         }
-        function change(k) {
-            data = [];
-            $("video").each(function (i) {
-                data[i] = $("video").attr("src");
+        function change(dir) {
+            var arrW = [],arrH = [],arrL = [],arrR = [],arrO = [],arrZ = [];
+            $('.li-video li').each(function (i) {
+                arrW[i] = $(this).css('width');
+                arrH[i] = $(this).css('height');
+                arrL[i] = $(this).css('left');
+                arrR[i] = $(this).css('right');
+                arrO[i] = $(this).css('opacity');
+                arrZ[i] = $(this).css('z-index');
             });
-            var index = 0;
-            $("video").each(function (i) {
-                if(k == 0)
+            $('.li-video li').each(function (i) {
+                var index;
+                if (dir==0)
                 {
-                    $(this).attr("src") = data[i];
-                }else
-                {
-                    alert(1);
+                    index = i-1;
+                    if(index < 0 )
+                    {
+                        index = 2;
+                    }
+                    $(this).animate({
+                        width : arrW[index],
+                        height : arrH[index],
+                        left : arrL[index],
+                        right : arrR[index],
+                        opacity : arrO[index],
+                        "z-index" : arrZ[index],
+                    },500)
+                };
+                if(dir == 1){
+                    index = i+1;
+                    if(index > 2 )
+                    {
+                        index = 0;
+                    }
+                    $(this).animate({
+                        width : arrW[index],
+                        height : arrH[index],
+                        left : arrL[index],
+                        right : arrR[index],
+                        opacity : arrO[index],
+                        "z-index" : arrZ[index],
+                    },500)
                 }
-            });
+            })
         }
 
     </script>
@@ -222,9 +253,9 @@
         <div class="row">
             <div class="col-sm-12 col-12" id="demo">
                 <ul class="li-video">
-                    <li class="first"><video preload="auto" loop="loop" src="static/video/dreamspace/1.mp4"></video></li>
-                    <li class="two" ><video style="border: 2px red solid;" preload="auto" loop="loop" src="static/video/dreamspace/2.mp4"></video></li>
-                    <li class="three"><video preload="auto" loop="loop" src="static/video/dreamspace/3.mp4"></video></li>
+                    <li class="first"><video autoplay muted loop src="static/video/dreamspace/1.mp4"></video></li>
+                    <li class="two" ><video autoplay muted loop  src="static/video/dreamspace/2.mp4"></video></li>
+                    <li class="three"><video autoplay muted loop src="static/video/dreamspace/3.mp4"></video></li>
                 </ul>
             </div>
               <button class="carousel-control-prev" type="button">
@@ -233,6 +264,9 @@
               <button class="carousel-control-next" type="button" >
                 <span class="carousel-control-next-icon" onclick="right()"></span>
               </button>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-12" style="padding-top: 50px;padding-left: 40%"><button type="button" class="btn" style="width: 250px;height:50px;background-color: #ffca2c;font-size: 1.5em;letter-spacing: 20px;padding-left: 30px">点击进入</button></div>
         </div>
     </div>
 </body>
