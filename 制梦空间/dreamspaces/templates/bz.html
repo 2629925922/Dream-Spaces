@@ -14,6 +14,7 @@
         }
         a{
             text-decoration: none;
+            color: black;
         }
         body{
             background-color: #f4f4f4;
@@ -62,6 +63,33 @@
         .d1 div div div:nth-child(1) span{
             color: #fff;
             font-size: 1.5em;
+        }
+        .d1 div:nth-child(3) ul li
+        {
+            list-style-type: none;
+        }
+        .page_pervious{
+            padding-left: 20%;
+        }
+        .page_pervious div:nth-child(1)
+        {
+            width: 90px;
+            height: 35px;
+            /*border: 1px #ccc solid;*/
+        }
+        .page
+        {
+            padding-left: 5%;
+            margin-left: 0.5em;
+            border: 1px #ccc solid;
+            border-radius: 0.222em;
+            width: 50px;
+            height: 34px;
+
+        }
+        .page_next
+        {
+            padding-left: 5%;
         }
 
         @media (max-width: 502px)
@@ -116,17 +144,38 @@
     </div>
     <div class=".container d1">
         <div class="row">
-            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/fjt.jpg")'><a href="/BZ/fj"><span>风景</span></a></div></div>
-            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/dmt.jpeg")'><a href="/BZ/dm"><span>动漫</span></a></div></div>
-            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/mxt.jpg")'><a href="/BZ/mx"><span>明星</span></a></div></div>
-            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/yxt.jpg")'><a href="/BZ/yx"><span>游戏</span></a></div></div>
-            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/bjt.jpg")'><a href="/BZ/bj"><span>背景</span></a></div></div>
-            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/mnt.jpg")'><a href="BZ/mv"><span>美女</span></a></div></div>
+            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/fjt.jpg")'><a href="/BZ/fj/1"><span>风景</span></a></div></div>
+            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/dmt.jpeg")'><a href="/BZ/dm/1"><span>动漫</span></a></div></div>
+            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/mxt.jpg")'><a href="/BZ/mx/1"><span>明星</span></a></div></div>
+            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/yxt.jpg")'><a href="/BZ/yx/1"><span>游戏</span></a></div></div>
+            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/bjt.jpg")'><a href="/BZ/bj/1"><span>背景</span></a></div></div>
+            <div class="col-sm-2 col"><div style='background-image: url("../static/images/TP/mnt.jpg")'><a href="/BZ/mx/1"><span>美女</span></a></div></div>
         </div>
         <div class="row">
             {% for i in data %}
             <div class="col-sm-4 col-4" style="padding-top: 5%"><div style='background-image: url("{{i}}");height: 250px;' ></div></div>
             {% endfor %}
+        </div>
+        <div class="row" style="margin-top: 4%;line-height: 34px">
+            <div class="col-3 col page_pervious">
+                {% if data.has_pervious %}
+                <div style="display: inline-block"><a href="{{data.pervious_page_number}}">上一页</a></div>
+                {% else %}
+                <div style="display: inline-block"><a disabled href="#">上一页</a></div>
+                {% endif %}
+            </div>
+            <div class="col-4">
+                <ul style="display: flex">
+                    {% for number in page_ranges.page_range %}
+                    <li class="page"><a href="{{number}}">{{number}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% if data.has_next %}
+            <div class="col-5 col page_next"><a href="{{data.next_page_number}}">下一页</a></div>
+            {% else %}
+            <div class="col-5 col page_next"><a disabled href="#">下一页</a></div>
+            {% endif %}
         </div>
     </div>
 </body>
