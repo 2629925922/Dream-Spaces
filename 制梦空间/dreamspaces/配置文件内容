@@ -1,0 +1,9 @@
+    location / {
+       include uwsgi_params;
+       uwsgi_pass 127.0.0.1:8997;  #端口要和uwsgi里配置的一样
+       uwsgi_param UWSGI_SCRIPT myblog.wsgi;  #wsgi.py所在的目录名+.wsgi
+       uwsgi_param UWSGI_CHDIR /www/wwwroot/www.django.cn/; #项目路径
+    }
+      location /static/ {
+      alias /www/wwwroot/www.django.cn/static/; #静态资源路径
+      }
