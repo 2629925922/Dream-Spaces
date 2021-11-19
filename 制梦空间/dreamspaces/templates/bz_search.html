@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制梦图库</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bz/bz.css">
+    <link rel="stylesheet" href="/static/css/bz/bz_header.css">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
+<body>
+    {% include "bz_header.html" %}
+    <div class=".container-fluid d1">
+        <div class="row" style="padding: 2% 2%">
+            <div class="col">
+                <p>共搜索到<b>{{ count }}</b>条数据</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for image_url in data %}
+            <div class="col-sm-4 col-4" style="padding-top: 2%">
+                <div title="我的图片" id="div_b" onmouseenter="bbs()" onmouseout="bbd()" style='background-image: url("{{image_url.url}}.jpg");height: 250px;padding-top: 50%;padding-left: 1%'></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
